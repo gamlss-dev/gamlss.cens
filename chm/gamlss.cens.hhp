@@ -1,0 +1,21 @@
+[OPTIONS]
+Auto Index=Yes
+Contents file=gamlss.cens.toc
+Compatibility=1.1 or later
+Compiled file=gamlss.cens.chm
+Default topic=00Index.html
+Display compile progress=No
+Full-text search=Yes
+Full text search stop list file=..\..\..\gnuwin32\help\R.stp
+Title=R Help for package gamlss.cens
+
+
+[FILES]
+00Index.html
+cens.d.html
+cens.html
+cens.p.html
+cens.q.html
+gamlss.cens-package.html
+gen.cens.html
+lip.html

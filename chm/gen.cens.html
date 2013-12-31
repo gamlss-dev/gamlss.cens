@@ -1,0 +1,124 @@
+<html><head><title>A Function to Generate Appropriate Functions to Be Used to Fit a Censored Response variable in GAMLSS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>gen.cens(gamlss.cens)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   gen.cens">
+<param name="keyword" value=" A Function to Generate Appropriate Functions to Be Used to Fit a Censored Response variable in GAMLSS">
+</object>
+
+
+<h2>A Function to Generate Appropriate Functions to Be Used to Fit a Censored Response variable in GAMLSS</h2>
+
+
+<h3>Description</h3>
+
+<p>
+The <code>gen.cens()</code> function allows the user to generate a
+<code>d</code>, <code>p</code>, (dummy) <code>q</code> and fitting  <code>gamlss</code> functions for  
+censor and interval response variables.  The function can take any  <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> distribution.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+gen.cens(family = "NO", name = "cens", 
+          type = c("right", "left", "interval"), ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>family</code></td>
+<td>
+a <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> object, which is 
+used to define the distribution and the link functions of the various parameters.
+The distribution families supported by <code>gamlss()</code> 
+can be found in <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> and in the package <code>gamlss.dist</code>.</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+the characters you want to add to the name of new functions, by default is the first letter of <code>type</code> and <code>c</code>
+i.e WEIic for WEI (weibull) interval response variable</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+whether <code>right</code>, <code>left</code>  or in <code>interval</code> censoring is required, 
+(right is the default) </td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+for extra arguments</td></tr>
+</table>
+
+<h3>Details</h3>
+
+
+
+
+<h3>Value</h3>
+
+<p>
+Returns  the <code>d</code>, <code>p</code>,  (dummy) <code>q</code> and the fitting used in the fitting gamlss algorithm (The one 
+used in the fitting gamlss algorithm)  of a <code>gamlss.family</code> distribution.</p>
+
+<h3>Note</h3>
+
+
+
+
+<h3>Author(s)</h3>
+
+<p>
+Mikis Stasinopoulos <a href="mailto:d.stasinopoulos@londonmet.ac.uk">d.stasinopoulos@londonmet.ac.uk</a> and Bob Rigby <a href="mailto:r.rigby@londonmet.ac.uk">r.rigby@londonmet.ac.uk</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Rigby, R. A. and  Stasinopoulos D. M. (2005). Generalized additive models for location, scale and shape,(with discussion), 
+<EM>Appl. Statist.</EM>, <B>54</B>, part 3, pp 507-554.
+</p>
+<p>
+Stasinopoulos D. M., Rigby R.A. and Akantziliotou C. (2006) Instructions on how to use the GAMLSS package in R.
+Accompanying documentation in the current GAMLSS  help files, (see also  <a href="http://www.gamlss.com/">http://www.gamlss.com/</a>).
+</p>
+<p>
+Stasinopoulos D. M. Rigby R.A. (2007) Generalized additive models for location scale and shape (GAMLSS) in R.
+<EM>Journal of Statistical Software</EM>, Vol. <B>23</B>, Issue 7, Dec 2007, <a href="http://www.jstatsoft.org/v23/i07">http://www.jstatsoft.org/v23/i07</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="cens.d.html">cens.d</a></code>, <code><a href="cens.p.html">cens.p</a></code>, <code><a href="cens.html">cens</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(gamlss.dist)
+data(lip)
+gen.cens(WEI,type="interval") 
+WEIic
+gg1&lt;- gamlss(y ~ poly(Tem,2)+poly(pH,2)+poly(aw,2), data=lip, family=WEIic, c.crit=0.00001, n.cyc=200, trace=FALSE)
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>gamlss.cens</em> version 1.8.1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

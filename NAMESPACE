@@ -1,0 +1,21 @@
+
+# functions
+export(gen.cens, cens.d, cens.p, cens.q, cens)
+importFrom(survival, Surv, is.Surv)
+importFrom(gamlss)
+importFrom(gamlss.dist)
+
+# datasets #export(lange)
+
+
+# needed for gamlss family
+#export(as.family, gamlss.family, gamlss.family.default, as.gamlss.family)
+
+# documented but unexported methods
+
+
+#importFrom(graphics, pairs, plot)
+
+#useDynLib(gamlss)
+
+#S3method(finterp, gamlss.nl)

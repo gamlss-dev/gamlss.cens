@@ -1,0 +1,125 @@
+<html><head><title>The GAMLSS Add On Package for Censored Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>gamlss.cens-package(gamlss.cens)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   gamlss.cens-package">
+<param name="keyword" value="R:   gamlss.cens">
+<param name="keyword" value=" The GAMLSS Add On Package for Censored Data">
+</object>
+
+
+<h2>The GAMLSS Add On Package for Censored Data</h2>
+
+
+<h3>Description</h3>
+
+<p>
+The purpose of this package is to allow the user of the GAMLSS models to 
+be able to fit parametric distributions to data with censored or interval response variable.
+</p>
+
+
+<h3>Details</h3>
+
+<p>
+<table summary="Rd table">
+<tr>
+  <td align="left">Package: </td>  <td align="left"> gamlss.cens</td>
+</tr>
+<tr>
+  <td align="left"> Type: </td>  <td align="left"> Package</td>
+</tr>
+<tr>
+  <td align="left"> Version: </td>  <td align="left"> 1.0</td>
+</tr>
+<tr>
+  <td align="left"> Date: </td>  <td align="left"> 2007-03-03</td>
+</tr>
+<tr>
+  <td align="left"> License: </td>  <td align="left"> GPL (version 2 or later)</td>
+</tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Mikis Stasinopoulos &lt;<a href="mailto:d.stasinopoulos@londonmet.ac.uk">d.stasinopoulos@londonmet.ac.uk</a>&gt; and Bob Rigby &lt;<a href="mailto:r.rigby@londonmet.ac.uk">r.rigby@londonmet.ac.uk</a>&gt; 
+</p>
+<p>
+Maintainer: Mikis Stasinopoulos &lt;d.stasinopoulos@londonmet.ac.uk&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Rigby, R. A. and  Stasinopoulos D. M. (2005). Generalized additive models for location, scale and shape,(with discussion), 
+<EM>Appl. Statist.</EM>, <B>54</B>, part 3, pp 507-554.
+</p>
+<p>
+Stasinopoulos D. M., Rigby R.A. and Akantziliotou C. (2006) Instructions on how to use the GAMLSS package in R.
+Accompanying documentation in the current GAMLSS  help files, (see also  <a href="http://www.gamlss.com/">http://www.gamlss.com/</a>).
+</p>
+<p>
+Stasinopoulos D. M. Rigby R.A. (2007) Generalized additive models for location scale and shape (GAMLSS) in R.
+<EM>Journal of Statistical Software</EM>, Vol. <B>23</B>, Issue 7, Dec 2007, <a href="http://www.jstatsoft.org/v23/i07">http://www.jstatsoft.org/v23/i07</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a onclick="findlink('gamlss', 'gamlss.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss</a></code>,<code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(survival)
+library(gamlss)
+library(gamlss.dist)
+# comparing results with package survival
+# fitting the exponential distribution
+ms1&lt;-survreg(Surv(futime, fustat) ~ ecog.ps + rx, ovarian, 
+             dist='exponential')
+mg1&lt;-gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, 
+             family=cens(EXP),c.crit=0.00001)
+if(abs(-2*ms1$loglik[2]-deviance(mg1))&gt;0.001) stop(paste("descrepancies in exp")) 
+if(sum(coef(ms1)-coef(mg1))&gt;0.001) warning(paste("descrepancies in coef in exp")) 
+summary(ms1)
+summary(mg1)
+# fitting the Weibull distribution
+ms2 &lt;-survreg(Surv(futime, fustat) ~ ecog.ps + rx, ovarian, dist='weibull')
+mg2 &lt;-gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, 
+           family=cens(WEI, delta=c(0.001,0.001)), c.crit=0.00001)
+if(abs(-2*ms2$loglik[2]-deviance(mg2))&gt;0.005) 
+     stop(paste("descrepancies in deviance in WEI")) 
+summary(ms2);summary(mg2)
+# compare the scale parameter
+ 1/exp(coef(mg2,"sigma"))
+# now fit the Weibull in different parameterrazions  
+mg21&lt;-gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, 
+             family=cens(WEI2), method=mixed(2,30)) 
+mg21&lt;-gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, 
+             family=cens(WEI3)) 
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>gamlss.cens</em> version 1.8.1 <a href="00Index.html">Index]</a></div>
+
+</body></html>

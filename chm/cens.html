@@ -1,0 +1,194 @@
+<html><head><title>Function to Fit Censored Data Using a gamlss.family Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>cens(gamlss.cens)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   cens">
+<param name="keyword" value=" Function to Fit Censored Data Using a gamlss.family Distribution">
+</object>
+
+
+<h2>Function to Fit Censored Data Using a gamlss.family Distribution</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function can be used to fit censored or interval response variables. 
+It takes as an argument an existing <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> distribution  
+and  generates 
+a new <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> object which then can be used to fit 
+right, left or interval censored data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cens(family = "NO", type = c("right", "left", "interval"), name = "cens", 
+       local = TRUE, delta = NULL, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>family</code></td>
+<td>
+a <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> object, which is used to 
+define the distribution and the link functions of the various parameters. 
+The distribution families supported by <code>gamlss()</code> 
+can be found in <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> and in the package <code>gamlss.dist</code>.</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+the characters you want to add to the name of new functions, by default is <code>cens</code></td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+what type of censoring is required, <code>right</code>, <code>left</code> or <code>interval</code>.</td></tr>
+<tr valign="top"><td><code>local</code></td>
+<td>
+if TRUE the function will try to find the environment of <code>gamlss</code> to generate 
+the <code>d</code> and <code>p</code> functions required for the fitting, 
+if FALSE the functions will be generated in the global environment</td></tr>
+<tr valign="top"><td><code>delta</code></td>
+<td>
+the delta increment used in the numerical derivatives</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+for extra arguments </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+This function is created to help users to fit censored data using an existing 
+<code>gamlss.family</code> distribution.
+It does this by taking an existing <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> and changing 
+some of the components of the distribution to help the fitting process. 
+It particular it (i) creates a (<code>d</code>) function (for calculating the censored 
+likelihood) and a (<code>p</code>) function (for generating the quantile residuals) 
+within <code>gamlss</code>, 
+(ii) changes  the global deviance function <code>G.dev.incr</code>, 
+the first derivative functions (see note below) 
+and other quantities from the original distribution.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+It returns a <code><a onclick="findlink('gamlss', 'gamlss.family.html')" style="text-decoration: underline; color: blue; cursor: hand">gamlss.family</a></code> object which has all the components needed for fitting a distribution in <code>gamlss</code>.</p>
+
+<h3>Note</h3>
+
+<p>
+This function is experimental and could be changed in the future. 
+The function <code>cens</code> changes the first derivatives of the original gamlss family 
+<code>d</code> function to numerical derivatives for the new censored <code>d</code> function. 
+The default increment <code>delta</code>, for this numerical derivatives function, 
+is <code>eps * pmax(abs(x), 1)</code> where  <code>eps&lt;-sqrt(.Machine$double.eps)</code>. 
+The default <code>delta</code> could be inappropriate for 
+specific applications and can be overwritten by using the argument <code>delta</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Mikis Stasinopoulos <a href="mailto:d.stasinopoulos@londonmet.ac.uk">d.stasinopoulos@londonmet.ac.uk</a> and Bob Rigby <a href="mailto:r.rigby@londonmet.ac.uk">r.rigby@londonmet.ac.uk</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>
+Rigby, R. A. and  Stasinopoulos D. M. (2005). Generalized additive models for location, scale and shape,(with discussion), 
+<EM>Appl. Statist.</EM>, <B>54</B>, part 3, pp 507-554.
+</p>
+<p>
+Stasinopoulos D. M., Rigby R.A. and Akantziliotou C. (2006) Instructions on how to use the GAMLSS package in R.
+Accompanying documentation in the current GAMLSS  help files, (see also  <a href="http://www.gamlss.com/">http://www.gamlss.com/</a>).
+</p>
+<p>
+Stasinopoulos D. M. Rigby R.A. (2007) Generalized additive models for location scale and shape (GAMLSS) in R.
+<EM>Journal of Statistical Software</EM>, Vol. <B>23</B>, Issue 7, Dec 2007, <a href="http://www.jstatsoft.org/v23/i07">http://www.jstatsoft.org/v23/i07</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="cens.d.html">cens.d</a></code>, <code><a href="cens.p.html">cens.p</a></code>,  <code><a href="gen.cens.html">gen.cens</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# comparing output with the survreg() of package survival
+library(gamlss.dist)
+library(survival)
+#--------------------------------------------------------------------
+# right censoring example 
+# example from survreg() 
+# fitting the exponential distribution
+mexp&lt;-survreg(Surv(futime, fustat) ~ ecog.ps + rx, ovarian, dist='exponential')
+gexp&lt;-gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, family=cens(EXP), c.crit=0.00001)
+if(abs(-2*mexp$loglik[2]-deviance(gexp))&gt;0.001) stop(paste("descrepancies in exponential models")) 
+if(sum(coef(mexp)-coef(gexp))&gt;0.001) warning(paste("descrepancies in coef in exponential models")) 
+summary(mexp)
+summary(gexp)
+# fitting different distributions
+# weibull 
+mwei &lt;-survreg(Surv(futime, fustat) ~ ecog.ps + rx, ovarian, dist='weibull')
+gwei&lt;-gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, family=cens(WEI, delta=c(0.0001,0.0001)), c.crit=0.00001)
+if(abs(-2*mwei$loglik[2]-deviance(gwei))&gt;0.005) stop(paste("descrepancies in deviance in WEI")) 
+scoef &lt;- sum(coef(mwei)-coef(gwei))
+if(abs(scoef)&gt;0.005) warning(cat("descrepancies in coef in WEI of ", scoef, "\n")) 
+# WEI3 is weibull parametrised with mu as the mean
+gwei3 &lt;- gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, family=cens(WEI3)) 
+# log normal
+mlogno &lt;-survreg(Surv(futime, fustat) ~ ecog.ps + rx, ovarian, dist='lognormal')
+glogno&lt;-gamlss(Surv(futime, fustat) ~ ecog.ps + rx, data=ovarian, family=cens(LOGNO, delta=c(0.001,0.001)), c.cyc=0.00001)
+if(abs(-2*mlogno$loglik[2]-deviance(glogno))&gt;0.005) stop(paste("descrepancies in deviance in LOGNO")) 
+coef(mlogno);coef(glogno) 
+#-------------------------------------------------------------------- 
+# now interval response variable 
+data(lip)
+with(lip, y)
+mg1&lt;-survreg(y ~ poly(Tem,2)+poly(pH,2)+poly(aw,2), data=lip, dist="weibull")
+gg1&lt;- gamlss(y ~ poly(Tem,2)+poly(pH,2)+poly(aw,2), data=lip, family=cens(WEI,type="interval"), 
+                               c.crit=0.00001, n.cyc=200, trace=FALSE)
+summary(mg1)
+summary(gg1)
+#--------------------------------------------------------------------
+# now fitting discretised continuous distribution to count data
+# fitting discretised Gamma
+data(species)
+ mGA&lt;-gamlss(Surv(fish,fish+1,type= "interval2")~log(lake)+I(log(lake)^2), sigma.fo=~log(lake), 
+              data=species, family=cens(GA, type="interval"))
+# fitting discretised inverse Gaussian
+ mIG&lt;-gamlss(Surv(fish,fish+1,type= "interval2")~log(lake)+I(log(lake)^2), sigma.fo=~log(lake), 
+              data=species, family=cens(IG, type="interval"))
+AIC(mGA,mIG)
+plot(fish~log(lake), data=species)
+with(species, lines(log(lake)[order(lake)], fitted(mIG)[order(lake)]))             
+#--------------------------------------------------------------------
+</pre>
+
+<script Language="JScript">
+function findlink(pkg, fn) {
+var Y, link;
+Y = location.href.lastIndexOf("\\") + 1;
+link = location.href.substring(0, Y);
+link = link + "../../" + pkg + "/chtml/" + pkg + ".chm::/" + fn;
+location.href = link;
+}
+</script>
+
+
+<hr><div align="center">[Package <em>gamlss.cens</em> version 1.8.1 <a href="00Index.html">Index]</a></div>
+
+</body></html>
