@@ -2,7 +2,7 @@
 \alias{gamlss.cens-package}
 \alias{gamlss.cens}
 \docType{package}
-\title{The GAMLSS Add On Package for Censored Data}
+\title{The GAMLSS Add-On Package for Censored Data}
 \description{
 The purpose of this package is to allow the user of the GAMLSS models to 
 be able to fit parametric distributions to data with censored or interval response variable.
@@ -18,9 +18,9 @@ License: \tab GPL (version 2 or later)\cr
 
 }
 \author{
-Mikis Stasinopoulos <\email{d.stasinopoulos@londonmet.ac.uk}> and Bob Rigby <\email{r.rigby@londonmet.ac.uk}> 
+Mikis Stasinopoulos <\email{mikis.stasinopoulos@gamlss.org}> and Bob Rigby <\email{r.rigby@londonmet.ac.uk}> 
 
-Maintainer: Mikis Stasinopoulos <d.stasinopoulos@londonmet.ac.uk>
+Maintainer: Mikis Stasinopoulos <mikis.stasinopoulos@gamlss.org>
 }
 \references{
 Rigby, R. A. and  Stasinopoulos D. M. (2005). Generalized additive models for location, scale and shape,(with discussion), 

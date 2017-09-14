@@ -1,7 +1,7 @@
 \name{cens.d}
 \alias{cens.d}
 
-\title{Censored probability density function of a gamlss.family distribution}
+\title{Censored Probability Density Function of a gamlss.family Distribution}
 \description{
  Creates a probability density function from a current \code{\link[gamlss.dist]{gamlss.family}}  
  distribution to be used for fitting a censored or interval response variable.
@@ -35,7 +35,7 @@ Accompanying documentation in the current GAMLSS  help files, (see also  \url{ht
 Stasinopoulos D. M. Rigby R.A. (2007) Generalized additive models for location scale and shape (GAMLSS) in R.
 \emph{Journal of Statistical Software}, Vol. \bold{23}, Issue 7, Dec 2007, \url{http://www.jstatsoft.org/v23/i07}.
  }
-\author{Mikis Stasinopoulos \email{d.stasinopoulos@londonmet.ac.uk} and Bob Rigby \email{r.rigby@londonmet.ac.uk}}
+\author{Mikis Stasinopoulos \email{mikis.stasinopoulos@gamlss.org} and Bob Rigby}
 \note{For an example see \code{gen.cens()}   
 }
 \seealso{  \code{\link{cens.p}},  \code{\link{gen.cens}}}
