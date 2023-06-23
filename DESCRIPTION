@@ -2,8 +2,8 @@ Package: gamlss.cens
 Type: Package
 Title: Fitting an Interval Response Variable Using `gamlss.family'
         Distributions
-Version: 5.0-1
-Date: 2018-06-08
+Version: 5.0-2
+Date: 2023-06-23
 Depends: R (>= 2.2.1), gamlss.dist, gamlss,  survival, methods
 Author: Mikis Stasinopoulos <d.stasinopoulos@londonmet.ac.uk>, Bob
         Rigby, Nicoleta Mortan
