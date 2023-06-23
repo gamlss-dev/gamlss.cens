@@ -6,7 +6,7 @@ Version: 5.0-2
 Date: 2023-06-23
 Depends: R (>= 2.2.1), gamlss.dist, gamlss,  survival, methods
 Author: Mikis Stasinopoulos <d.stasinopoulos@londonmet.ac.uk>, Bob
-        Rigby, Nicoleta Mortan
+        Rigby, Nicoleta Mortan, 
 Maintainer: Mikis Stasinopoulos <d.stasinopoulos@londonmet.ac.uk>
 Description: This is an add-on package to GAMLSS. The purpose of this
         package is to allow users to fit interval response variables in
