@@ -2,42 +2,38 @@
 \alias{gamlss.cens-package}
 \alias{gamlss.cens}
 \docType{package}
-\title{The GAMLSS Add-On Package for Censored Data}
+\title{
+\packageTitle{gamlss.cens}
+}
 \description{
-The purpose of this package is to allow the user of the GAMLSS models to 
-be able to fit parametric distributions to data with censored or interval response variable.
+\packageDescription{gamlss.cens}
 }
 \details{
-\tabular{ll}{
-Package: \tab gamlss.cens\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2007-03-03\cr
-License: \tab GPL (version 2 or later)\cr
-}
 
+The DESCRIPTION file:
+\packageDESCRIPTION{gamlss.cens}
+\packageIndices{gamlss.cens}
 }
 \author{
-Mikis Stasinopoulos <\email{mikis.stasinopoulos@gamlss.org}> and Bob Rigby <\email{r.rigby@londonmet.ac.uk}> 
+\packageAuthor{gamlss.cens}
 
-Maintainer: Mikis Stasinopoulos <mikis.stasinopoulos@gamlss.org>
+Maintainer: \packageMaintainer{gamlss.cens}
 }
 \references{
 Rigby, R. A. and  Stasinopoulos D. M. (2005). Generalized additive models for location, scale and shape,(with discussion), 
 \emph{Appl. Statist.}, \bold{54}, part 3, pp 507-554.
 
-Stasinopoulos D. M., Rigby R.A. and Akantziliotou C. (2006) Instructions on how to use the GAMLSS package in R.
-Accompanying documentation in the current GAMLSS  help files, (see also  \url{http://www.gamlss.org/}).
-
 Stasinopoulos D. M. Rigby R.A. (2007) Generalized additive models for location scale and shape (GAMLSS) in R.
 \emph{Journal of Statistical Software}, Vol. \bold{23}, Issue 7, Dec 2007, \url{http://www.jstatsoft.org/v23/i07}.
 
-}
-\keyword{ package }
-\keyword{ distribution }
-\keyword{ regression }
+Stasinopoulos D. M., Rigby R.A., Heller G., Voudouris V., and De Bastiani F., (2017) \emph{Flexible Regression and Smoothing: Using GAMLSS in R}, Chapman and Hall/CRC. 
 
-\seealso{\code{\link[gamlss]{gamlss}},\code{\link[gamlss.dist]{gamlss.family}}  
+(see also \url{http://www.gamlss.org/}).
+
+}
+
+\keyword{ package }
+\seealso{\code{\link[gamlss]{gamlss}}, \code{\link[gamlss.dist]{gamlss.family}}  
 }
 \examples{
 library(survival)

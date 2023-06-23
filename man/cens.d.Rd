@@ -30,12 +30,12 @@ The argument of the original function \code{d} function are the same.
 \emph{Appl. Statist.}, \bold{54}, part 3, pp 507-554.
 
 Stasinopoulos D. M., Rigby R.A. and Akantziliotou C. (2006) Instructions on how to use the GAMLSS package in R.
-Accompanying documentation in the current GAMLSS  help files, (see also  \url{http://www.gamlss.org/}).
+Accompanying documentation in the current GAMLSS  help files, (see also  \url{https://www.gamlss.com/}).
 
 Stasinopoulos D. M. Rigby R.A. (2007) Generalized additive models for location scale and shape (GAMLSS) in R.
 \emph{Journal of Statistical Software}, Vol. \bold{23}, Issue 7, Dec 2007, \url{http://www.jstatsoft.org/v23/i07}.
  }
-\author{Mikis Stasinopoulos \email{mikis.stasinopoulos@gamlss.org} and Bob Rigby}
+\author{Mikis Stasinopoulos \email{d.stasinopoulos@londonmet.ac.uk} and Bob Rigby}
 \note{For an example see \code{gen.cens()}   
 }
 \seealso{  \code{\link{cens.p}},  \code{\link{gen.cens}}}
