@@ -8,8 +8,8 @@ The \code{gen.cens()} function allows the user to generate a
 censor and interval response variables.  The function can take any  \code{\link[gamlss.dist]{gamlss.family}} distribution. 
 }
 \usage{
-gen.cens(family = "NO", name = "cens", 
-          type = c("right", "left", "interval"), ...)
+gen.cens(family = "NO", type = c("right", "left", "interval"), 
+       name = "cens", ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

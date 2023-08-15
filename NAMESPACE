@@ -3,7 +3,7 @@
 export(gen.cens, cens.d, cens.p, cens.q, cens)
 importFrom(survival, Surv, is.Surv)
 import(gamlss)
-importFrom(gamlss.dist, as.gamlss.family)
+importFrom(gamlss.dist, as.gamlss.family,  pNO, qNO)
 importFrom("methods", "is")
 import(stats)
 import(graphics)
