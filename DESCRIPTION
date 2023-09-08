@@ -5,9 +5,9 @@ Title: Fitting an Interval Response Variable Using `gamlss.family'
 Version: 5.0-4
 Date: 2023-09-08
 Depends: R (>= 2.2.1), gamlss.dist, gamlss,  survival, methods
-Author: Mikis Stasinopoulos <d.stasinopoulos@londonmet.ac.uk>, Bob
+Author: Mikis Stasinopoulos <d.stasinopoulos@gre.ac.uk>, Bob
         Rigby, Nicoleta Mortan, Alexander Seipp
-Maintainer: Mikis Stasinopoulos <d.stasinopoulos@londonmet.ac.uk>
+Maintainer: Mikis Stasinopoulos <d.stasinopoulos@gre.ac.uk>
 Description: This is an add-on package to GAMLSS. The purpose of this
         package is to allow users to fit interval response variables in
         GAMLSS models. The main function gen.cens() generates a
