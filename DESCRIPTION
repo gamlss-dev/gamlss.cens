@@ -3,7 +3,7 @@ Type: Package
 Title: Fitting an Interval Response Variable Using `gamlss.family'
         Distributions
 Version: 5.0-4
-Date: 2023-08-15
+Date: 2023-09-08
 Depends: R (>= 2.2.1), gamlss.dist, gamlss,  survival, methods
 Author: Mikis Stasinopoulos <d.stasinopoulos@londonmet.ac.uk>, Bob
         Rigby, Nicoleta Mortan, Alexander Seipp
