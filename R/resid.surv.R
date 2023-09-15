@@ -27,7 +27,8 @@ if (!is.null(model)) family <- model[["family"]][1]
         type <- fam$type  
 #-------------------------------------------------------------------------------
 # get the information of the survival response   
-if (class(model$y)!="Surv") stop("the response is not Surv object")
+
+if (!is(model$y, "Surv")) stop("the response is not Surv object")
        TYPE <- attr(model$y, "type") 
 if (TYPE=="right")
        {
