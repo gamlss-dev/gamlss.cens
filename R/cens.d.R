@@ -19,7 +19,10 @@ if (mode(family) != "character" && mode(family) != "name")
         function(x, log = FALSE, ...)
         {
          if (!is.Surv(x)) stop(paste("the x variable is not a Surv object"))
-        dfun <- ifelse(x[,"status"]==1, pdf(x[,1],log = TRUE,...),log(cdf(x[,1],...)))
+        # dfun <- ifelse(x[,"status"]==1, 
+        #                pdf(x[,1],log = TRUE,...),log(cdf(x[,1],...)))
+          dfun <- ifelse(x[,"status"]==1, 
+                      pdf(x[,1],log = TRUE,...), cdf(x[,1], log.p = TRUE, ...))    
         dfun <- if (log == TRUE) dfun else exp(dfun)
         dfun
         }
@@ -27,7 +30,10 @@ if (mode(family) != "character" && mode(family) != "name")
         function(x, log = FALSE, ...)
        {
         if (!is.Surv(x)) stop(paste("the x variable is not a Surv object"))
-        dfun <- ifelse(x[,"status"]==1, pdf(x[,1],log = TRUE,...),log(1-cdf(x[,1],...)))
+      # dfun <- ifelse(x[,"status"]==1, pdf(x[,1],log = TRUE,...),
+      #                    log(1-cdf(x[,1],...)))
+        dfun <- ifelse(x[,"status"]==1, pdf(x[,1],log = TRUE,...),
+                       cdf(x[,1], lower.tail = FALSE, log.p = TRUE, ...))  
         dfun <- if (log == TRUE) dfun else exp(dfun)
         dfun
        } 
@@ -35,11 +41,15 @@ if (mode(family) != "character" && mode(family) != "name")
        function(x, log = FALSE, ...)
        {
         if (!is.Surv(x)) stop(paste("the x variable is not a Surv object"))
-        dfun0 <-ifelse(x[,"status"]==0, cdf(x[,1], lower.tail=F, log.p=T, ...),0) 
-        # right  equivalent: log(1-cdf(y[,1],...)) cdf(y[,1], lower.tail=F, log.p=T, ...) 
-        dfun1 <-ifelse(x[,"status"]==1, pdf(x[,1],log = TRUE,...),0)# death
-        dfun2 <-ifelse(x[,"status"]==2, cdf(x[,1],  log.p=T, ...),0)# left  
-        suppressWarnings(dfun3 <-ifelse(x[,"status"]==3, log(cdf(x[,2],...)-cdf(x[,1],...)),0))# interval
+        dfun0 <- ifelse(x[,"status"]==0, cdf(x[,1], lower.tail=FALSE, 
+                                             log.p=TRUE, ...),0) 
+        # right  equivalent: 
+        # log(1-cdf(y[,1],...)) cdf(y[,1], lower.tail=F, log.p=T, ...) 
+        dfun1 <-ifelse(x[,"status"]==1, pdf(x[,1],log = TRUE,...),0)   # death
+        dfun2 <-ifelse(x[,"status"]==2, cdf(x[,1],  log.p=TRUE, ...),0)# left  
+        suppressWarnings(
+        dfun3 <-ifelse(x[,"status"]==3, log(cdf(x[,2],...)-cdf(x[,1],...)),0))
+                                                                     # interval
         dfun <- dfun0+dfun1+dfun2+dfun3
         dfun <- if (log == TRUE) dfun else exp(dfun)
         dfun

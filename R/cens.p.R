@@ -21,7 +21,7 @@ fun <- if (type=="left")
          if (!is.Surv(q)) stop(paste("the q variable is not a Surv object"))
         pfun1 <- cdf(q[,1],...)
         pfun2 <- runif(length(q[,1]),0,pfun1) 
-        pfun <- ifelse(q[,"status"]==1, pfun1,pfun2)
+         pfun <- ifelse(q[,"status"]==1, pfun1,pfun2)
         pfun
        }
      else if (type=="right")
@@ -30,7 +30,7 @@ fun <- if (type=="left")
         if (!is.Surv(q)) stop(paste("the q variable is not a Surv object"))
         pfun1 <- cdf(q[,1],...)
         pfun2 <- runif(length(q[,1]),pfun1,1) 
-        pfun <- ifelse(q[,"status"]==1, pfun1,pfun2)
+         pfun <- ifelse(q[,"status"]==1, pfun1, pfun2)
         pfun
        } 
      else if (type=="interval")    
@@ -40,7 +40,8 @@ fun <- if (type=="left")
         pfun1 <- cdf(q[,1],...)
         pfun2 <- runif(length(q[,1]),0,pfun1) 
         pfun0 <- runif(length(q[,1]),pfun1,1) 
-        suppressWarnings(pfun3<-runif( length(q[,1]), cdf(q[,1],...), cdf(q[,2],...) ) )# interval   )
+        suppressWarnings(
+         pfun3 <- runif( length(q[,1]), cdf(q[,1],...), cdf(q[,2],...) ) )# interval   
         pfun0 <-ifelse(q[,"status"]==0, pfun0,0)  # right 
         pfun1 <-ifelse(q[,"status"]==1, pfun1,0)  # death
         pfun2 <-ifelse(q[,"status"]==2, pfun2,0)  # left
