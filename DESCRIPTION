@@ -1,5 +1,5 @@
 Package: gamlss.cens
-Title: Fitting an Interval Response Variable Using `gamlss.family' Distributions
+Title: Generating and Fitting Censored 'gamlss.family' Distributions
 Version: 5.0-8
 Date: 2023-11-02
 Authors@R: c(person("Mikis", "Stasinopoulos", role = c("aut", "cre", "cph"), 
@@ -8,11 +8,9 @@ Authors@R: c(person("Mikis", "Stasinopoulos", role = c("aut", "cre", "cph"),
            person("Nicoleta", "Mortan", role = "ctb"),
            person("Alexander", "Seipp", role = "ctb")
            )
-Description: This is an add-on package to GAMLSS. The purpose of this
-        package is to allow users to fit interval response variables in
-        GAMLSS models. The main function gen.cens() generates a
-        censored version of an existing GAMLSS family distribution.
+Description: This is an add-on package to 'gamlss' which supports censored distributions in Generalized Additive Models for Location Scale and Shape.
+        The main function gen.cens() generates a censored version of an existing gamlss family distribution.
 License: GPL-2 | GPL-3
 URL: https://www.gamlss.com/
 BugReports: https://github.com/gamlss-dev/gamlss.cens/issues
-Depends: R (>= 2.2.1), gamlss.dist, gamlss,  survival, methods
+Depends: R (>= 2.2.1), gamlss.dist, gamlss, survival, methods
